@@ -11,6 +11,7 @@ options.add_argument("--headless")  # Executa sem abrir o navegador
 service = Service(ChromeDriverManager().install())
 driver = webdriver.Chrome(service=service, options=options)
 
+# Adicionar uma variável com input para adicionar o link
 # Abrindo a página da NFC-e
 url = "https://portalsped.fazenda.mg.gov.br/portalnfce/sistema/qrcode.xhtml?p=31250103083231004434651080000099511264815312%7C2%7C1%7C1%7C56F331339A3E57FEC3DDFC331E9BDFC9557CFD91"
 driver.get(url)
