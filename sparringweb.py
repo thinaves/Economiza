@@ -1,2 +1,0 @@
-oi sergio
-oi thiago
