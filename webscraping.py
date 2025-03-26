@@ -33,8 +33,8 @@ CREATE TABLE IF NOT EXISTS produtos (
 
 # Pegando a data da compra e número da nota
 try:
-    data_elemento = driver.find_element(By.XPATH, "//some_xpath_for_date")  # Ajuste o XPATH correto
-    numero_nota_elemento = driver.find_element(By.XPATH, "//some_xpath_for_invoice_number")  # Ajuste o XPATH correto
+    data_elemento = driver.find_element(By.XPATH, "//*[@id=\"collapse4\"]/table[3]/tbody/tr/td[4]")  # Ajuste o XPATH correto
+    numero_nota_elemento = driver.find_element(By.XPATH, "//*[@id="collapse4"]/table[3]/tbody/tr/td[3]")  # Ajuste o XPATH correto
 
     data_da_compra = data_elemento.text.strip()
     numero_nota = numero_nota_elemento.text.strip()
