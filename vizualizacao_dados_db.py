@@ -1,12 +1,12 @@
-import sqlite3
+numero_nota = input("Digite o número da nota para ver os produtos: ")
 
-conn = sqlite3.connect("dados_nfce.db")
+conn = sqlite3.connect("produtos.db")
 cursor = conn.cursor()
 
-cursor.execute("SELECT * FROM produtos")
-dados = cursor.fetchall()
+cursor.execute("SELECT * FROM produtos WHERE numero_nota = ?", (numero_nota,))
+resultados = cursor.fetchall()
 
-for linha in dados:
-    print(linha)
+for produto in resultados:
+    print(produto)
 
 conn.close()
