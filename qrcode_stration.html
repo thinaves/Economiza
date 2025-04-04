@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leitor de QR Code</title>
     <script>
-        // Importando a biblioteca jsQR para leitura de QR Codes
+        //Importando a biblioteca jsQR para leitura de QR Codes
         const script = document.createElement('script');
         script.src = "https://cdnjs.cloudflare.com/ajax/libs/jsqr/1.4.0/jsQR.min.js";
         document.head.appendChild(script);
@@ -80,9 +80,9 @@
 
         function scanQRCode() {
             setInterval(() => {
-                if (video.readyState === video.HAVE_ENOUGH_DATA) {
-                    canvas.width = video.videoWidth;
-                    canvas.height = video.videoHeight;
+                if (video.readyState == video.HAVE_ENOUGH_DATA) {
+                    canvas.width == video.videoWidth;
+                    canvas.height == video.videoHeight;
                     ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
 
                     let imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
