@@ -4,7 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leitor de QR Code</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsQR/1.3.2/jsQR.min.js"></script>
+    <script>
+        // Importando a biblioteca jsQR para leitura de QR Codes
+        const script = document.createElement('script');
+        script.src = "https://cdnjs.cloudflare.com/ajax/libs/jsqr/1.4.0/jsQR.min.js";
+        document.head.appendChild(script);
+        script.onload = () => {
+            console.log("jsQR library loaded successfully.");
+        };
+    </script>
     <style>
         body {
             font-family: Arial, sans-serif;
