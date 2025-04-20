@@ -1,2 +1,1 @@
-mkdir nota_fiscal_api
-cd nota_fiscal_api
+
