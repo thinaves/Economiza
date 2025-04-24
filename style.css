@@ -65,3 +65,23 @@ h3 {
     width: 80px;  /* ajusta conforme o tamanho da sua imagem */
     height: 80px;
 }
+
+form button {
+    display: block;
+    width: 100%;
+    margin-top: 10px; /* espaço entre os botões */
+    padding: 10px;
+    font-size: 16px;
+}
+
+.secundario {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.secundario:hover {
+    background-color: #0056b3;
+}
