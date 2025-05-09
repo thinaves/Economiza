@@ -1,9 +1,9 @@
 import sqlite3
 from datetime import datetime
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.chrome.service import Service
-from webdriver_manager.chrome import ChromeDriverManager
+from selenium import webdriver # type: ignore
+from selenium.webdriver.common.by import By # type: ignore
+from selenium.webdriver.chrome.service import Service # type: ignore
+from webdriver_manager.chrome import ChromeDriverManager # type: ignore
 
 # Configuração do Selenium
 options = webdriver.ChromeOptions()
