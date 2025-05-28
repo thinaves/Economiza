@@ -1,3 +1,41 @@
+# Arquivos Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Ambiente virtual
+venv/
+env/
+ENV/
+.venv/
+
+# Configuração de IDE
+.vscode/
+.idea/
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
+
+# Arquivos de ambiente
 .env
-_pycache_/
-*.pyc
+
+# Banco de dados local (caso use SQLite)
+*.db
+*.sqlite3
+
+# Arquivos de log
+*.log
+
+# Arquivos temporários
+*.swp
+*.bak
+
+# Arquivos de teste e cache
+.pytest_cache/
+.cache/
+coverage/
+htmlcov/
+# Arquivos de configuração do Docker
+docker-compose.override.yml
