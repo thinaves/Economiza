@@ -58,7 +58,7 @@ def receber_nota():
 
     # Conectar e salvar o link no banco de dados
     try:
-        conn = sqlite3.connect('dados_nfce.db')
+        conn = mysql.connect('dados_nfce.db')
         cursor = conn.cursor()
         cursor.execute('''CREATE TABLE IF NOT EXISTS notas_fiscais (id INTEGER PRIMARY KEY AUTOINCREMENT, link TEXT)''')
         cursor.execute("INSERT INTO notas_fiscais (link) VALUES (?)", (link,))
