@@ -1,3 +1,369 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-br">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Economiza - Login</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(45deg, #4CAF50, #81C784);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            position: relative;
+        }
+
+        .logo-area {
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, #4CAF50, #81C784);
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+            color: white;
+            margin-bottom: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.1);
+        }
+
+        h1 {
+            color: #2E7D32;
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        h3 {
+            color: #666;
+            margin: 20px 0;
+            font-style: italic;
+        }
+
+        h2 {
+            color: #2E7D32;
+            margin-bottom: 20px;
+        }
+
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        input {
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus {
+            border-color: #4CAF50;
+        }
+
+        button {
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        button[type="submit"] {
+            background: #4CAF50;
+            color: white;
+        }
+
+        button[type="submit"]:hover {
+            background: #45a049;
+            transform: translateY(-2px);
+        }
+
+        .cadastre-btn {
+            background: #2196F3;
+            color: white;
+        }
+
+        .cadastre-btn:hover {
+            background: #1976D2;
+            transform: translateY(-2px);
+        }
+
+        .esqueci-btn {
+            background: #FF9800;
+            color: white;
+        }
+
+        .esqueci-btn:hover {
+            background: #F57C00;
+            transform: translateY(-2px);
+        }
+
+        /* Easter Egg Styles */
+        .easter-egg-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .easter-egg-content {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 500px;
+            animation: bounceIn 0.6s ease-out;
+        }
+
+        @keyframes bounceIn {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.05); }
+            70% { transform: scale(0.9); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .money-rain {
+            position: fixed;
+            top: -50px;
+            font-size: 2em;
+            animation: fall 3s linear infinite;
+            z-index: 999;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(-100vh) rotate(0deg); }
+            100% { transform: translateY(100vh) rotate(360deg); }
+        }
+
+        .hidden-counter {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            color: #333;
+            display: none;
+        }
+
+        .shake {
+            animation: shake 0.5s ease-in-out;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo-area">
+            <div class="logo" onclick="secretClick()">💰</div>
+            <h1>Economiza</h1>
+        </div>
+        
+        <h3>Melhor sistema para você comparar, economizar e comprar!</h3>
+
+        <h2>Acesse</h2>
+        <form class="login-form" onsubmit="return false;">
+            <input type="text" name="usuario" placeholder="E-mail, CPF ou Telefone" required>
+            <input type="password" name="senha" placeholder="Senha" required>
+            <button type="submit">Entrar</button>
+            <button type="button" class="esqueci-btn">Esqueci a senha</button>
+            <button type="button" class="cadastre-btn" onclick="window.location.href='Registro_usuario.html'">Cadastre-se</button>
+        </form>
+    </div>
+
+    <div class="hidden-counter" id="counter">
+        Cliques secretos: <span id="clickCount">0</span>/7
+    </div>
+
+    <div class="easter-egg-overlay" id="easterEgg">
+        <div class="easter-egg-content">
+            <h2>🎉 PARABÉNS! 🎉</h2>
+            <h3>Você encontrou o Easter Egg do Economiza!</h3>
+            <p>🥚 <strong>Mensagem secreta da equipe:</strong></p>
+            <p style="font-style: italic; color: #4CAF50; font-size: 1.2em;">
+                "Assim como você encontrou este segredo, 
+                nossos usuários vão encontrar as melhores ofertas! 
+                Vocês são incríveis! 💚"
+            </p>
+            <p>🎁 <strong>Código de desconto especial:</strong> <code style="background: #f0f0f0; padding: 5px; border-radius: 3px;">DEVS2024</code></p>
+            <button onclick="closeEasterEgg()" style="margin-top: 20px; background: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Fechar</button>
+        </div>
+    </div>
+
+    <script>
+        let clickCount = 0;
+        let konamiCode = [];
+        let konamiSequence = [
+            'ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 
+            'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 
+            'KeyB', 'KeyA'
+        ];
+
+        // Easter Egg 1: Cliques secretos no logo
+        function secretClick() {
+            clickCount++;
+            document.getElementById('clickCount').textContent = clickCount;
+            
+            if (clickCount === 1) {
+                document.getElementById('counter').style.display = 'block';
+            }
+            
+            if (clickCount === 7) {
+                showEasterEgg();
+                createMoneyRain();
+                resetCounter();
+            }
+            
+            // Shake effect
+            document.querySelector('.logo').classList.add('shake');
+            setTimeout(() => {
+                document.querySelector('.logo').classList.remove('shake');
+            }, 500);
+        }
+
+        // Easter Egg 2: Konami Code
+        document.addEventListener('keydown', function(e) {
+            konamiCode.push(e.code);
+            if (konamiCode.length > konamiSequence.length) {
+                konamiCode.shift();
+            }
+            
+            if (konamiCode.join('') === konamiSequence.join('')) {
+                showEasterEgg();
+                createMoneyRain();
+                konamiCode = [];
+            }
+        });
+
+        // Easter Egg 3: Sequência secreta de digitação
+        let secretTyping = '';
+        document.addEventListener('keypress', function(e) {
+            secretTyping += e.key.toLowerCase();
+            if (secretTyping.length > 9) {
+                secretTyping = secretTyping.slice(-9);
+            }
+            
+            if (secretTyping === 'economiza') {
+                showEasterEgg();
+                createMoneyRain();
+                secretTyping = '';
+            }
+        });
+
+        function showEasterEgg() {
+            document.getElementById('easterEgg').style.display = 'flex';
+            
+            // Adiciona confetti effect
+            setTimeout(() => {
+                for (let i = 0; i < 50; i++) {
+                    setTimeout(() => {
+                        createConfetti();
+                    }, i * 100);
+                }
+            }, 500);
+        }
+
+        function closeEasterEgg() {
+            document.getElementById('easterEgg').style.display = 'none';
+            document.getElementById('counter').style.display = 'none';
+        }
+
+        function resetCounter() {
+            clickCount = 0;
+            document.getElementById('clickCount').textContent = '0';
+        }
+
+        function createMoneyRain() {
+            const symbols = ['💰', '💵', '💴', '💶', '💷', '🪙', '💸'];
+            
+            for (let i = 0; i < 15; i++) {
+                setTimeout(() => {
+                    const money = document.createElement('div');
+                    money.className = 'money-rain';
+                    money.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+                    money.style.left = Math.random() * 100 + '%';
+                    money.style.animationDelay = Math.random() * 2 + 's';
+                    document.body.appendChild(money);
+                    
+                    setTimeout(() => {
+                        money.remove();
+                    }, 3000);
+                }, i * 200);
+            }
+        }
+
+        function createConfetti() {
+            const confetti = document.createElement('div');
+            confetti.style.position = 'fixed';
+            confetti.style.left = Math.random() * 100 + '%';
+            confetti.style.top = '-10px';
+            confetti.style.width = '10px';
+            confetti.style.height = '10px';
+            confetti.style.backgroundColor = ['#ff6b6b', '#4ecdc4', '#45b7d1', '#f9ca24', '#f0932b', '#eb4d4b', '#6c5ce7'][Math.floor(Math.random() * 7)];
+            confetti.style.zIndex = '1001';
+            confetti.style.animation = 'fall 3s linear';
+            
+            document.body.appendChild(confetti);
+            
+            setTimeout(() => {
+                confetti.remove();
+            }, 3000);
+        }
+
+        // Easter Egg 4: Comentário secreto no console
+        console.log(`
+        🎉 EASTER EGG DESCOBERTO NO CONSOLE! 🎉
+        
+        Olá, dev curioso! 👋
+        
+        Você encontrou um dos segredos do Economiza!
+        
+        Dicas para encontrar outros Easter Eggs:
+        1. Clique 7 vezes no logo 💰
+        2. Use o Konami Code: ↑↑↓↓←→←→BA
+        3. Digite "economiza" em qualquer lugar da página
+        
+        Equipe Economiza te ama! 💚
+        `);
+    </script>
+</body>
+</html>
